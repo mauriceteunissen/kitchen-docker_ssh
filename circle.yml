@@ -12,13 +12,17 @@ dependencies:
 
 test:
   override:
-    - bundle exec rake test
+    - bundle exec rake 
 
 deployment:
   release:
     branch: feature/versioning 
     commands:
       - VERSION=9.9.9
+      - ls -la 
+      - pwd
+      - export
+      - git status  
       - cat lib/kitchen/driver/docker_ssh_version.rb | sed -i "s/[0-9]*\.[0-9]*\.[0-9]*/$VERSION/" 
       - cat lib/kitchen/driver/docker_ssh_version.rb
       - grep $VERSION lib/kitchen/driver/docker_ssh_version.rb | echo $?
