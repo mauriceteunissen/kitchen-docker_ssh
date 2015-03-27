@@ -23,7 +23,7 @@ deployment:
       - pwd
       - export
       - git status  
-      - cat lib/kitchen/driver/docker_ssh_version.rb | sed -i "s/[0-9]*\.[0-9]*\.[0-9]*/$VERSION/" 
+      - sed -i "s/[0-9]*\.[0-9]*\.[0-9]*/$VERSION/" lib/kitchen/driver/docker_ssh_version.rb 
       - cat lib/kitchen/driver/docker_ssh_version.rb
       - grep $VERSION lib/kitchen/driver/docker_ssh_version.rb | echo $?
       - git status  
