@@ -1,22 +1,14 @@
 # Kitchen::Docker
 
-[![Build Status](https://travis-ci.org/peterabbott/kitchen-docker.svg?branch=delete)](https://travis-ci.org/peterabbott/kitchen-docker)
 
-A Test Kitchen Driver for Docker.
+
+A Test Kitchen Driver for Docker. This is a fork of http://github.com/portech/kitchen-docker because the original driver is only sparodically updated.
+
+
 
 ## Requirements
 
 * [Docker][docker_getting_started]
-
-## Versions
-
-### 1.6.1 
-
-- Merge of #71, #80, #91, #92
-
-
-
-
 
 
 
@@ -24,18 +16,17 @@ A Test Kitchen Driver for Docker.
 
 ### Gemfile
 
-Add an entry to your Gemfile. This fork is currently not hosted on the central ruby repository you will need to use the following to use this fork:
+Add an entry to your Gemfile. 
 
 ```
-gem 'kitchen-docker', :git => 'https://github.com/peterabbott/kitchen-docker.git'
+gem 'kitchen-docker_ssh'
 ```
 
-To be safe, you should probably reference a tagged version instead of the HEAD version
 
+To point to the latest development version, you can also point to the git repo
 ```
-gem 'kitchen-docker', :git => 'https://github.com/peterabbott/kitchen-docker.git', :tag => '1.6.1'
+gem 'kitchen-docker_ssh', :git => 'https://github.com/peterabbott/kitchen-docker_ssh.git'
 ```
-
 
 
 ### Test Kitchen
@@ -109,6 +100,13 @@ Examples:
   binary: /opt/docker
 ```
 
+Windows, requires docker cli to be on the path, otherwise use absolute path: 
+
+```
+   binary: docker.exe 
+```
+
+
 ### socket
 
 The Docker daemon socket to use. By default, Docker will listen on
@@ -133,6 +131,15 @@ If you use [Boot2Docker](https://github.com/boot2docker/boot2docker), set your `
 socket: tcp://192.168.59.103:2375
 ```
 
+### use_sudo
+
+Flags whether commands should be run as sudo, default true.
+
+```
+  use_sudo: false
+```
+
+When a remote socket used then use_sudo is set to false.
 
 ### image
 
