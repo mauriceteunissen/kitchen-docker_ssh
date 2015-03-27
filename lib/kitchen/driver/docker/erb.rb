@@ -1,8 +1,6 @@
 # -*- encoding: utf-8 -*-
 #
-# Author:: Peter Abbott (pabbottnz@gmail.com)
-#
-# Copyright (C) 2015, Peter Abbott
+# Copyright (C) 2014, Sean Porter
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -16,11 +14,21 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+require 'erb'
+
 module Kitchen
-
   module Driver
+    # ERB Context
+    class DockerERBContext
+      def initialize(config={})
+        config.each do |key, value|
+          instance_variable_set('@' + key.to_s, value)
+        end
+      end
 
-    # Version string for DockerSsh Kitchen driver
-    DOCKER_SSH_VERSION = '0.1.0.dev'
+      def get_binding
+        binding
+      end
+    end
   end
 end

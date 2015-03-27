@@ -6,11 +6,11 @@ require 'kitchen/driver/docker_ssh_version'
 Gem::Specification.new do |spec|
   spec.name          = 'kitchen-docker_ssh'
   spec.version       = Kitchen::Driver::DOCKER_SSH_VERSION
-  spec.authors       = ['peter.abbott']
-  spec.email         = ['peter.abbott@akqa.com']
+  spec.authors       = ['Peter Abbott']
+  spec.email         = ['peter@piemanpete.com']
   spec.description   = %q{A Test Kitchen Driver for DockerSsh}
   spec.summary       = spec.description
-  spec.homepage      = ''
+  spec.homepage      = 'http://github.com/peterabbott/kitchen-docker_ssh/'
   spec.license       = 'Apache 2.0'
 
   spec.files         = `git ls-files`.split($/)
@@ -18,7 +18,7 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ['lib']
 
-  spec.add_dependency 'test-kitchen', '~> 1.0.0.alpha.3'
+  spec.add_dependency 'test-kitchen', '~> 1.3.1'
 
   spec.add_development_dependency 'bundler', '~> 1.3'
   spec.add_development_dependency 'rake'
@@ -26,4 +26,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'cane'
   spec.add_development_dependency 'tailor'
   spec.add_development_dependency 'countloc'
+
+  spec.add_development_dependency "rspec","~> 3.2"
 end
