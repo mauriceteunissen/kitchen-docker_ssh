@@ -2,7 +2,7 @@
 
 
 
-A Test Kitchen Driver for Docker. This is a fork of http://github.com/portech/kitchen-docker because the original driver is only sparodically updated.
+A Test Kitchen Driver for Docker. This is a fork of http://github.com/portertech/kitchen-docker because the original driver is only sparodically updated.
 
 
 
@@ -466,8 +466,10 @@ example:
 
 Created and maintained by 
 
- - [Sean Porter][author] (<portertech@gmail.com>)
- - Peter Abbott
+ - [Peter Abbott](peter@piemanpete.com)
+ 
+Based on original work from:
+ - [Sean Porter][author] (<portertech@gmail.com>) http://github.com/portertech/kitchen-docker/
 
 
 ## License
@@ -475,16 +477,10 @@ Created and maintained by
 Apache 2.0 (see [LICENSE][license])
 
 
-[author]:                 https://github.com/portertech
-[issues]:                 https://github.com/portertech/kitchen-docker/issues
-[license]:                https://github.com/portertech/kitchen-docker/blob/master/LICENSE
-[repo]:                   https://github.com/portertech/kitchen-docker
-[docker_getting_started]: http://www.docker.io/gettingstarted/
-[docker_upstart_issue]:   https://github.com/dotcloud/docker/issues/223
-[docker_index]:           https://index.docker.io/
-[docker_default_image]:   https://index.docker.io/_/base/
-[docker_man]:             https://github.com/docker/docker/blob/master/docs/man/docker-run.1.md
-[test_kitchen_docs]:      http://kitchen.ci/docs/getting-started/
-[chef_omnibus_dl]:        http://www.opscode.com/chef/install/
-[cpu_shares]:             https://docs.fedoraproject.org/en-US/Fedora/17/html/Resource_Management_Guide/sec-cpu.html
-[memory_limit]:           https://docs.fedoraproject.org/en-US/Fedora/17/html/Resource_Management_Guide/sec-memory.html
+
+[author]:           https://github.com/peterabbott
+[issues]:           https://github.com/peterabbott/kitchen-docker_ssh/issues
+[license]:          https://github.com/peterabbott/kitchen-docker_ssh/blob/master/LICENSE
+[repo]:             https://github.com/peterabbott/kitchen-docker_ssh
+[driver_usage]:     http://docs.kitchen-ci.org/drivers/usage
+[chef_omnibus_dl]:  http://www.getchef.com/chef/install/
