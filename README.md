@@ -1,5 +1,8 @@
-# Kitchen::Docker
+# Kitchen::Docker 
 
+[![https://circleci.com/gh/peterabbott/kitchen-docker_ssh.png?circle-token=bad3411099b80b42c28842fb59a74ee546eee2b8)](https://circleci.com/gh/peterabbott/kitchen-docker_ssh)
+
+[![Build Status](https://travis-ci.org/peterabbott/kitchen-docker_ssh.svg)](https://travis-ci.org/peterabbott/kitchen-docker_ssh)
 
 
 A Test Kitchen Driver for Docker. This is a fork of http://github.com/portertech/kitchen-docker because the original driver is only sparodically updated.
