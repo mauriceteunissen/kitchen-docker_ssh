@@ -1,10 +1,13 @@
 #!/bin/bash 
 
-VERSION_FILE=./VERSION
+[[ $(git status -s | grep -v ?? | wc -l ) -gt 0 ]] && { echo "uncommited changes, can't continue"; exit 1; }
 
-[[ $(git status -s | grep -v ?? | wc -l ) -gt 0 ]] && { echo "uncommited changes, can't continue"; exit 1; } 
+VERSION_FILE=./VERSION
 RELEASE_TYPE=patch
 [ ! -z "$1" ] && RELEASE_TYPE=$1
+
+[ -z "$(git config user.name)" ] && git config user.name "CI User"
+[ -z "$(git config user.email)" ] && git config user.email"ci.user@users.noreply.github.com"
 
 GEMSPEC_FILE=$(ls -1 *.gemspec | head -1)
 
@@ -38,9 +41,6 @@ if [ ! -f ~/.gem/credentials ]; then
 EOF
   chmod 0600 ~/.gem/credentials  
 fi
-
-git config --global user.name "CI User"
-git config --global user.email "ci.user@users.noreply.github.com"
 
 bundle exec gem push $GEM_FILE --key rubygems 
 [[ $? -ne 0 ]] && { echo "Gem Push failed"; exit 1; }
