@@ -39,6 +39,9 @@ EOF
   chmod 0600 ~/.gem/credentials  
 fi
 
+git config --global user.name "CI User"
+git config --global user.email "ci.user@users.noreply.github.com"
+
 bundle exec gem push $GEM_FILE --key rubygems 
 [[ $? -ne 0 ]] && { echo "Gem Push failed"; exit 1; }
 
