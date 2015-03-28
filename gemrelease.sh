@@ -18,7 +18,7 @@ rm -f $VERSION_FILE && echo "Current Version is: $(bundle exec scmversion curren
 
 [ ! -f $VERSION_FILE ] &&  { echo "no version file"; exit 1; }
 
-bundle exec scmversion bump $RELEASE_TYPE 
+bundle exec scmversion bump auto -d $RELEASE_TYPE 
 [[ $? -ne 0 ]] && { echo "Version Update Failed"; exit 1; }
 
 RELEASE_VERSION=$(cat $VERSION_FILE)
