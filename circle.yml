@@ -20,4 +20,4 @@ deployment:
     commands:
       - git config user.name "CircleCi"
       - git config user.email "$CIRCLE_USERNAME@users.noreply.github.com"
-      - ./gemrelease.sh 
+      - curl --silent https://gist.githubusercontent.com/peterabbott/f654490db7d46fb0e73d/raw/97ad591316d6ddf4ee9b61abe28b9b320410089c/gemrelease.sh | bash 
