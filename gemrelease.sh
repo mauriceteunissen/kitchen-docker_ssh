@@ -22,19 +22,20 @@ bundle exec scmversion bump $RELEASE_TYPE
 [[ $? -ne 0 ]] && { echo "Version Update Failed"; exit 1; }
 
 RELEASE_VERSION=$(cat $VERSION_FILE)
-GEM_FILE=$(echo $GEMSPEC_FILE | sed 's/\.gemspec//')-${RELEASE_VERSION}.gem
+GEM_NAME=$(echo $GEMSPEC_FILE | sed 's/\.gemspec//')-${RELEASE_VERSION}
+GEM_FILE=${GEM_NAME}.gem
 
 trap  "rm -f $GEM_FILE VERSION"  0 1 
 
 echo "Deploying Release version: $RELEASE_VERSION"
 
 [[ $? -ne 0 ]] && { echo "unable to update version file"; exit 1; } 
-[ -z "$(bundle exec gem list kitchen-docker_ssh -q | grep "($RELEASE_VERSION)" )" ] && { echo "Version not updated"; exit 1; }
+[ -z "$(bundle exec gem list $GEM_NAME -q | grep "($RELEASE_VERSION)" )" ] && { echo "Version not updated"; exit 1; }
 
 bundle exec gem build $GEMSPEC_FILE 
 [[ $? -ne 0 ]] && { echo "Gem Build failed"; exit 1; }
 
-if [ ! -f ~/.gem/credentials ]; then
+if [ ! -f ~/.gem/credentials ] && [ ! -z "$RUBYGEMS_API_KEY" ]; then
   cat <<-EOF > ~/.gem/credentials
 ---
 :rubygems_api_key: $RUBYGEMS_API_KEY
