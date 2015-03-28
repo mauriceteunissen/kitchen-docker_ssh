@@ -16,7 +16,7 @@ test:
 
 deployment:
   release:
-    branch: feature/versioning 
+    branch: master 
     commands:
       - git config user.name "CircleCi"
       - git config user.email "$CIRCLE_USERNAME@users.noreply.github.com"
