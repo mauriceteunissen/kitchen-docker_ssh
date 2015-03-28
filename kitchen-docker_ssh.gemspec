@@ -13,9 +13,9 @@ Gem::Specification.new do |spec|
   spec.homepage      = 'http://github.com/peterabbott/kitchen-docker_ssh/'
   spec.license       = 'Apache 2.0'
 
-  spec.files         = `git ls-files`.split($/)
+  spec.files         = `git ls-files`.split($/) -  %w( .gitignore support ) + %w( lib/kitchen/driver/VERSION )
   spec.executables   = []
-  spec.test_files    = spec.files.grep(%r{^(test|spec|features)/}) - %w( .gitignore support )
+  spec.test_files    = spec.files.grep(%r{^(test|spec|features)/}) 
   spec.require_paths = ['lib']
 
   spec.add_dependency 'test-kitchen', '~> 1.3.1'

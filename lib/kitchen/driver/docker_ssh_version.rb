@@ -21,6 +21,6 @@ module Kitchen
   module Driver
 
     # Version string for DockerSsh Kitchen driver
-    DOCKER_SSH_VERSION = '0.0.3'
+    DOCKER_SSH_VERSION = IO.read("VERSION") rescue '0.0.1' 
   end
 end
