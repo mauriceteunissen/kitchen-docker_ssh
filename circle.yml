@@ -18,12 +18,4 @@ deployment:
   release:
     branch: feature/versioning 
     commands:
-      - export VERSION=9.9.9
-      - ls -la 
-      - pwd
-      - export
-      - git status  
-      - sed -i "s/[0-9]*\.[0-9]*\.[0-9]*/$VERSION/" lib/kitchen/driver/docker_ssh_version.rb 
-      - cat lib/kitchen/driver/docker_ssh_version.rb
-      - grep "DOCKER_SSH_VERSION = '$VERSION'" lib/kitchen/driver/docker_ssh_version.rb 
       - git status  
