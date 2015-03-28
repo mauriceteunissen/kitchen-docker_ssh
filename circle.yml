@@ -18,4 +18,6 @@ deployment:
   release:
     branch: feature/versioning 
     commands:
+      - git config user.name "CircleCi"
+      - git config user.email "circleci@users.noreply.github.com"
       - ./gemrelease.sh 
