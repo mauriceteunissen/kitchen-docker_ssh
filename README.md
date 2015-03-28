@@ -110,7 +110,6 @@ Windows, requires docker cli to be on the path, otherwise use absolute path:
    binary: docker.exe 
 ```
 
-
 ### socket
 
 The Docker daemon socket to use. By default, Docker will listen on
