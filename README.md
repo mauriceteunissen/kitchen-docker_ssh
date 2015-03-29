@@ -12,7 +12,7 @@ A Test Kitchen Driver for Docker. This is a fork of http://github.com/portertech
 
 ## Requirements
 
-* [Docker][docker_getting_started]
+* [Docker](https://docs.docker.com/)
 
 
 
@@ -66,6 +66,8 @@ Examples:
 
 ```
 ---
+driver:
+  name: docker_ssh
 platforms:
 - name: ubuntu-12.04
 - name: centos-6.4
