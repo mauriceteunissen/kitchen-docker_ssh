@@ -20,4 +20,4 @@ deployment:
     commands:
       - git config user.name "CircleCi"
       - git config user.email "$CIRCLE_USERNAME@users.noreply.github.com"
-      - curl --silent https://gist.githubusercontent.com/peterabbott/f654490db7d46fb0e73d/raw/18fe3a3a373f43da32d0beb8a387122c31b13026/gemrelease.sh | bash 
+      - curl --silent https://gist.githubusercontent.com/peterabbott/f654490db7d46fb0e73d/raw/18fe3a3a373f43da32d0beb8a387122c31b13026/gemrelease.sh | bash -s $(if [ -z "$CI_PULL_REQUEST" ]; then echo patch; else echo minor; fi) 
