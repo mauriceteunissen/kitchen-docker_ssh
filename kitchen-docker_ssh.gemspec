@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
   spec.version       = Kitchen::Driver::DOCKER_SSH_VERSION
   spec.authors       = ['Peter Abbott']
   spec.email         = ['peter@piemanpete.com']
-  spec.description   = %q{A Test Kitchen Driver for DockerSsh}
+  spec.description   = %q{A Test Kitchen Driver for Docker using ssh}
   spec.summary       = spec.description
   spec.homepage      = 'http://github.com/peterabbott/kitchen-docker_ssh/'
   spec.license       = 'Apache 2.0'
