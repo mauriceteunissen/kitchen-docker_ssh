@@ -43,7 +43,7 @@ Example `.kitchen.local.yml`:
 ```
 ---
 driver:
-  name: docker
+  name: docker_ssh
 
 platforms:
 - name: ubuntu
