@@ -1,4 +1,4 @@
-# Kitchen::Docker 
+# Kitchen::DockerSSH 
 
 [![CircleCI Build Status](https://circleci.com/gh/peterabbott/kitchen-docker_ssh.png?style=shield&circle-token=bad3411099b80b42c28842fb59a74ee546eee2b8)](https://circleci.com/gh/peterabbott/kitchen-docker_ssh)
 
