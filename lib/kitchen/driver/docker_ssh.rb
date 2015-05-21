@@ -28,7 +28,7 @@ module Kitchen
     # DockerSsh driver for Kitchen.
     #
     # @author peter.abbott <peter.abbott@akqa.com>
-    class DockerSsh < Kitchen::Driver::SSHBase
+    class DockerSsh < Kitchen::Driver::Base
       default_config :binary,       'docker'
       default_config :socket,       ENV['DOCKER_HOST'] || 'unix:///var/run/docker.sock'
 
