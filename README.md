@@ -483,9 +483,10 @@ Apache 2.0 (see [LICENSE][license])
 
 
 
-[author]:           https://github.com/peterabbott
-[issues]:           https://github.com/peterabbott/kitchen-docker_ssh/issues
-[license]:          https://github.com/peterabbott/kitchen-docker_ssh/blob/master/LICENSE
-[repo]:             https://github.com/peterabbott/kitchen-docker_ssh
-[driver_usage]:     http://docs.kitchen-ci.org/drivers/usage
-[chef_omnibus_dl]:  http://www.getchef.com/chef/install/
+[author]:                 https://github.com/peterabbott
+[issues]:                 https://github.com/peterabbott/kitchen-docker_ssh/issues
+[license]:                https://github.com/peterabbott/kitchen-docker_ssh/blob/master/LICENSE
+[repo]:                   https://github.com/peterabbott/kitchen-docker_ssh
+[driver_usage]:           http://docs.kitchen-ci.org/drivers/usage
+[test_kitchen_docs]:      http://kitchen.ci/docs/getting-started/
+[chef_omnibus_dl]:        http://www.getchef.com/chef/install/
