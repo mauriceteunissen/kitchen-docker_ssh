@@ -6,7 +6,7 @@
 [![Travis Build Status](https://travis-ci.org/peterabbott/kitchen-docker_ssh.svg)](https://travis-ci.org/peterabbott/kitchen-docker_ssh)
 
 
-A Test Kitchen Driver for Docker. This is a fork of http://github.com/portertech/kitchen-docker because the original driver is only sparodically updated.
+A Test Kitchen Driver for Docker. This is a fork of http://github.com/portertech/kitchen-docker because the original driver is only sporadically updated.
 
 
 
