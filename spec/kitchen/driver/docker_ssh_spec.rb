@@ -1,9 +1,9 @@
-require 'kitchen/driver/docker'
-#require 'kitchen/provisioner/dummy'
+require 'kitchen/driver/docker_ssh'
+require 'kitchen/provisioner/dummy'
 
-describe Kitchen::Driver::Docker do
-  let(:driver_object) { Kitchen::Driver::Docker.new(config) }
-
+describe Kitchen::Driver::DockerSsh do
+  let(:driver_object) { Kitchen::Driver::DockerSsh.new(config) }
+  let(:config) do     { kitchen_root: "/kroot" } end
   let(:driver) do
     d = driver_object
     instance
@@ -19,9 +19,12 @@ describe Kitchen::Driver::Docker do
         :state_file => double("state_file")
       )
     end
+  it "driver api_version is 2" do
+    expect(driver.diagnose_plugin[:name]).to eq("docker_ssh")
+  end
   describe "configuration" do
     it "dummy" do
-      expect(instance[:platform]).to eq("ubuntu:12.04")
+      expect(:instance[:platform][:name]).to eq("")
     end
   end
 end
