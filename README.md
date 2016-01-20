@@ -6,7 +6,8 @@
 [![Travis Build Status](https://travis-ci.org/peterabbott/kitchen-docker_ssh.svg)](https://travis-ci.org/peterabbott/kitchen-docker_ssh)
 
 
-A Test Kitchen Driver for Docker. This is a fork of http://github.com/portertech/kitchen-docker because the original driver is only sparodically updated.
+A Test Kitchen Driver for Docker. This is a fork of http://github.com/portertech/kitchen-docker because the original driver is only sporadically updated.
+
 
 
 
@@ -40,7 +41,7 @@ Please read the Test Kitchen [docs][test_kitchen_docs] for more details.
 
 Example `.kitchen.local.yml`:
 
-```
+```yaml
 ---
 driver:
   name: docker_ssh
@@ -64,7 +65,7 @@ platforms.
 
 Examples:
 
-```
+```yaml
 ---
 driver:
   name: docker_ssh
@@ -75,7 +76,7 @@ platforms:
 
 This will effectively generate a configuration similar to:
 
-```
+```yaml
 ---
 platforms:
 - name: ubuntu-12.04
@@ -98,17 +99,17 @@ The default value is `docker`.
 
 Examples:
 
-```
+```yaml
   binary: docker.io
 ```
 
-```
+```yaml
   binary: /opt/docker
 ```
 
 Windows, requires docker cli to be on the path, otherwise use absolute path: 
 
-```
+```yaml
    binary: docker.exe 
 ```
 
@@ -122,17 +123,17 @@ to suite containers.
 
 Examples:
 
-```
+```yaml
   socket: unix:///tmp/docker.sock
 ```
 
-```
+```yaml
   socket: tcp://docker.example.com:4242
 ```
 
 If you use [Boot2Docker](https://github.com/boot2docker/boot2docker), set your `DOCKER_HOST` environment variable properly (e.g. `export DOCKER_HOST=tcp://192.168.59.103:2375`) or you have to use the following:
 
-```
+```yaml
 socket: tcp://192.168.59.103:2375
 ```
 
@@ -140,7 +141,7 @@ socket: tcp://192.168.59.103:2375
 
 Flags whether commands should be run as sudo, default true.
 
-```
+```yaml
   use_sudo: false
 ```
 
@@ -195,17 +196,17 @@ Custom command(s) to be run when provisioning the base for the suite containers.
 
 Examples:
 
-```
+```yaml
   provision_command: curl -L https://www.opscode.com/chef/install.sh | bash
 ```
 
-```
+```yaml
   provision_command:
     - apt-get install dnsutils
     - apt-get install telnet
 ```
 
-```
+```yaml
 driver_config:
   provision_command: curl -L https://www.opscode.com/chef/install.sh | bash
   require_chef_omnibus: false
@@ -241,7 +242,7 @@ The default value is `/usr/sbin/sshd -D -o UseDNS=no -o UsePAM=no -o PasswordAut
 
 Examples:
 
-```
+```yaml
   run_command: /sbin/init
 ```
 
@@ -263,11 +264,11 @@ suite container. Otherwise use Dockers defaults. You can read more in the
 
 Examples:
 
-```
+```yaml
   cpuset: 0-3
 ```
 
-```
+```yaml
   cpuset: '0,1'
 ```
 Notice that when using commas in the `cpuset` value you **must** quote them as
@@ -281,11 +282,11 @@ Adds a data volume(s) to the suite container.
 
 Examples:
 
-```
+```yaml
   volume: /ftp
 ```
 
-```
+```yaml
   volume:
   - /ftp
   - /srv
@@ -297,11 +298,11 @@ Mount volumes managed by other containers.
 
 Examples:
 
-```
+```yaml
   volumes_from: repos
 ```
 
-```
+```yaml
   volumes_from:
   - repos
   - logging
@@ -315,11 +316,11 @@ Dockers defaults.
 
 Examples:
 
-```
+```yaml
   dns: 8.8.8.8
 ```
 
-```
+```yaml
   dns:
   - 8.8.8.8
   - 8.8.4.4
@@ -330,7 +331,7 @@ Sets an http proxy for the suite container using the `http_proxy` environment va
 
 Examples:
 
-```
+```yaml
   http_proxy: http://proxy.host.com:8080
 ```
 ### https\_proxy
@@ -339,7 +340,7 @@ Sets an https proxy for the suite container using the `https_proxy` environment 
 
 Examples:
 
-```
+```yaml
   https_proxy: http://proxy.host.com:8080
 ```
 ### forward
@@ -349,11 +350,11 @@ the host (public) port in the mappings, if not, Docker chooses for you.
 
 Examples:
 
-```
+```yaml
   forward: 80
 ```
 
-```
+```yaml
   forward:
   - 22:2222
   - 80:8080
@@ -365,7 +366,7 @@ Set the suite container hostname. Otherwise use Dockers default.
 
 Examples:
 
-```
+```yaml
   hostname: foobar.local
 ```
 
@@ -378,7 +379,7 @@ The default value is `false`.
 
 Examples:
 
-```
+```yaml
   privileged: true
 ```
 
@@ -388,7 +389,7 @@ Use a custom Dockerfile, instead of having Kitchen-Docker build one for you.
 
 Examples:
 
-```
+```yaml
   dockerfile: test/Dockerfile
 ```
 
@@ -398,7 +399,7 @@ Set the name of container to link to other container(s).
 
 Examples:
 
-```
+```yaml
   instance_name: web
 ```
 
@@ -408,13 +409,13 @@ Set ```instance_name```(and alias) of other container(s) that connect from the s
 
 Examples:
 
-```
+```yaml
  links: db:db
 ```
 
 Examples:
 
-```
+```yaml
   links:
   - db:db
   - kvs:kvs
@@ -429,27 +430,25 @@ The default value is `false`.
 
 Examples:
 
-```
+```yaml
   publish_all: true
 ```
 
 ### cap_add
 Adds a capability to the running container, for example SYS_PTRACE
 
-````
+```yaml
 cap_add: 
 - SYS_PTRACE
-
-````
+```
 
 ### cap_drop
 Drops a capability to the running container, for example CHOWN
 
-````
+```yaml
 cap_drop: 
 - CHOWN
-
-````
+```
 
 
 ## Development
@@ -483,9 +482,10 @@ Apache 2.0 (see [LICENSE][license])
 
 
 
-[author]:           https://github.com/peterabbott
-[issues]:           https://github.com/peterabbott/kitchen-docker_ssh/issues
-[license]:          https://github.com/peterabbott/kitchen-docker_ssh/blob/master/LICENSE
-[repo]:             https://github.com/peterabbott/kitchen-docker_ssh
-[driver_usage]:     http://docs.kitchen-ci.org/drivers/usage
-[chef_omnibus_dl]:  http://www.getchef.com/chef/install/
+[author]:                 https://github.com/peterabbott
+[issues]:                 https://github.com/peterabbott/kitchen-docker_ssh/issues
+[license]:                https://github.com/peterabbott/kitchen-docker_ssh/blob/master/LICENSE
+[repo]:                   https://github.com/peterabbott/kitchen-docker_ssh
+[driver_usage]:           http://docs.kitchen-ci.org/drivers/usage
+[test_kitchen_docs]:      http://kitchen.ci/docs/getting-started/
+[chef_omnibus_dl]:        http://www.getchef.com/chef/install/
